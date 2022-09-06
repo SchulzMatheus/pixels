@@ -4,3 +4,10 @@
     height: 60px;
     border-radius: 100%;
 }
+.color-pallete {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    width: auto;
+    justify-content: center;
+}
