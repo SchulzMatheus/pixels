@@ -6,4 +6,3 @@ function randomizeColor(){
     }
     return randomColor;
 }
-console.log(randomizeColor())
