@@ -1,4 +1,6 @@
-
+const randomColorBtn = document.getElementById('button-random-color')
+const palleteElements = document.getElementsByClassName('pallete')
+//document.body.style.backgroundColor
 //gera uma cor random
 function randomizeColor(){
     const hexadeximal = '0123456789ABCDEF'
@@ -17,3 +19,11 @@ function generateNewColors(){
      return newColors
 }
 console.log(generateNewColors())
+
+function newPaleteColor(){
+    const arrayOfColor = generateNewColors()
+    for(let i = 0; i<palleteElements.length; i++){
+        palleteElements[i].style.backgroundColor =  arrayOfColor[i]
+    }
+}
+randomColorBtn.addEventListener('click', newPaleteColor)
