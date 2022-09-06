@@ -1,3 +1,10 @@
+.body-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    gap: 20px;
+  }
 .color {
     border: 1px solid black;
     width: 60px;
