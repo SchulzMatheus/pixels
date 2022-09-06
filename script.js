@@ -1,3 +1,5 @@
+
+//gera uma cor random
 function randomizeColor(){
     const hexadeximal = '0123456789ABCDEF'
     let randomColor = '#'
@@ -6,3 +8,12 @@ function randomizeColor(){
     }
     return randomColor;
 }
+//gera um grupo de 3 cores
+function generateNewColors(){
+     const newColors = []
+     for(let i = 0; i<3; i++){
+        newColors[i] = randomizeColor()
+     }
+     return newColors
+}
+console.log(generateNewColors())
