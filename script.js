@@ -60,3 +60,16 @@ function aux (){
 }
 
 randomColorBtn.addEventListener('click', aux)
+
+function removeClassSelect(classList){
+let newClass = '';
+for(let i = 0; i < classList.length; i++){
+    if(classList[i] !== 'selected') {
+        newClass += classList[i] + ' ';
+    }
+}
+return newClass
+}
+
+console.log(removeClassSelect(document.getElementById('x').classList))
+
