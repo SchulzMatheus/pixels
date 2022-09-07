@@ -1,6 +1,7 @@
 const randomColorBtn = document.getElementById('button-random-color')
 const palleteElements = document.getElementsByClassName('pallete')
 const allPalletElements = document.getElementsByClassName('color')
+const pixelBoard = document.querySelector('#pixel-board')
 //document.body.style.backgroundColor
 //gera uma cor random
 function randomizeColor(){
@@ -29,6 +30,17 @@ function newPaleteColor(array){
     }
     localStorage.setItem('colorPalette', JSON.stringify(atualColor))
 }
+
+function generatePixels() {
+    for(let i = 0; i < 25; i++) {
+        const newPixel = document.createElement('div')
+        newPixel.className = 'pixel'
+        newPixel.style.backgroundColor = 'white'
+        pixelBoard.appendChild(newPixel)
+    }
+}
+
+generatePixels(); 
 
 function rememberColor(){
     const storagePalette = JSON.parse(localStorage.getItem('colorPalette'));
