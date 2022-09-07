@@ -71,5 +71,19 @@ for(let i = 0; i < classList.length; i++){
 return newClass
 }
 
-console.log(removeClassSelect(document.getElementById('x').classList))
+let selected = document.querySelector('.selected');
+let color = '';
+const x = document.getElementById('color-palette');
 
+function selectColor (event) {
+    elementEvent = event.target
+    if(elementEvent.className.includes('color')) {
+        const selectedBox = selected.classList;
+        selected.className = removeClassSelect(selectedBox)
+        elementEvent.className += ' selected';
+        selected = elementEvent
+        color = elementEvent.style.backgroundColor;
+    }
+}
+
+x.addEventListener('click', selectColor)
