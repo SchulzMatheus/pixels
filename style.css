@@ -9,7 +9,7 @@
     border: 1px solid black;
     width: 60px;
     height: 60px;
-    border-radius: 100%;
+    
 }
 .color-pallete {
     align-items: center;
@@ -20,4 +20,16 @@
 }
 .preto {
     background-color: black;
+}
+
+.color:nth-child(2) {
+    background-color: pink;
+}
+
+.color:nth-child(3) {
+    background-color: blueviolet;
+}
+
+.color:nth-child(4) {
+    background-color: yellow;
 }
