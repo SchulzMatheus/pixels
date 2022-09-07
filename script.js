@@ -1,5 +1,6 @@
 const randomColorBtn = document.getElementById('button-random-color')
 const palleteElements = document.getElementsByClassName('pallete')
+const allPalletElements = document.getElementsByClassName('color')
 //document.body.style.backgroundColor
 //gera uma cor random
 function randomizeColor(){
@@ -18,12 +19,19 @@ function generateNewColors(){
      }
      return newColors
 }
-console.log(generateNewColors())
 
-function newPaleteColor(){
-    const arrayOfColor = generateNewColors()
+function newPaleteColor(array){
+    const atualColor = ['']
     for(let i = 0; i<palleteElements.length; i++){
-        palleteElements[i].style.backgroundColor =  arrayOfColor[i]
+        const arrayOfColor = array[i]
+        palleteElements[i].style.backgroundColor =  arrayOfColor
+        atualColor.push(arrayOfColor)
     }
+    localStorage.setItem('colorPalette', JSON.stringify(atualColor))
 }
-randomColorBtn.addEventListener('click', newPaleteColor)
+
+function aux (){
+    return newPaleteColor(generateNewColors())
+}
+
+randomColorBtn.addEventListener('click', aux)
