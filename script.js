@@ -40,8 +40,6 @@ function generatePixels() {
     }
 }
 
-generatePixels(); 
-
 function rememberColor(){
     const storagePalette = JSON.parse(localStorage.getItem('colorPalette'));
     if(storagePalette !== null){
@@ -49,7 +47,14 @@ function rememberColor(){
     }
     return newPaleteColor(generateNewColors())
 }
-rememberColor();
+
+function load ()
+{
+    generatePixels(); 
+    rememberColor();
+}
+
+load()
 function aux (){
     return newPaleteColor(generateNewColors())
 }
