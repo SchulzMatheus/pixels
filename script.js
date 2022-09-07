@@ -2,6 +2,9 @@ const randomColorBtn = document.getElementById('button-random-color')
 const palleteElements = document.getElementsByClassName('pallete')
 const allPalletElements = document.getElementsByClassName('color')
 const pixelBoard = document.querySelector('#pixel-board')
+let selected = document.querySelector('.selected');
+let color = '';
+const markBox = document.getElementById('color-palette');
 //document.body.style.backgroundColor
 //gera uma cor random
 function randomizeColor(){
@@ -48,18 +51,9 @@ function rememberColor(){
     return newPaleteColor(generateNewColors())
 }
 
-function load ()
-{
-    generatePixels(); 
-    rememberColor();
-}
-
-load()
 function aux (){
     return newPaleteColor(generateNewColors())
 }
-
-randomColorBtn.addEventListener('click', aux)
 
 function removeClassSelect(classList){
 let newClass = '';
@@ -70,10 +64,6 @@ for(let i = 0; i < classList.length; i++){
 }
 return newClass
 }
-
-let selected = document.querySelector('.selected');
-let color = '';
-const x = document.getElementById('color-palette');
 
 function selectColor (event) {
     elementEvent = event.target
@@ -86,4 +76,17 @@ function selectColor (event) {
     }
 }
 
-x.addEventListener('click', selectColor)
+function clickEvents(){
+    randomColorBtn.addEventListener('click', aux)
+markBox.addEventListener('click', selectColor)
+}
+
+function load ()
+{
+    generatePixels(); 
+    rememberColor();
+    clickEvents();
+}
+
+load()
+
