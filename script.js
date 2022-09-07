@@ -1,9 +1,10 @@
 const randomColorBtn = document.getElementById('button-random-color')
 const palleteElements = document.getElementsByClassName('pallete')
 const allPalletElements = document.getElementsByClassName('color')
+document.querySelector('.preto').style.backgroundColor = 'black';
 const pixelBoard = document.querySelector('#pixel-board')
 let selected = document.querySelector('.selected');
-let color = '';
+let color = 'black';
 const markBox = document.getElementById('color-palette');
 //document.body.style.backgroundColor
 //gera uma cor random
@@ -89,4 +90,11 @@ function load ()
 }
 
 load()
+
+function changePixelColor(event){
+    const pixelToBePaint = event.target;
+    if(pixelToBePaint.className.includes('pixel'))
+    pixelToBePaint.style.backgroundColor = color
+}
+pixelBoard.addEventListener('click', changePixelColor)
 
