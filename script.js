@@ -77,10 +77,18 @@ function selectColor (event) {
     }
 }
 
+function changePixelColor(event){
+    const pixelToBePaint = event.target;
+    if(pixelToBePaint.className.includes('pixel'))
+    pixelToBePaint.style.backgroundColor = color
+}
+
 function clickEvents(){
     randomColorBtn.addEventListener('click', aux)
-markBox.addEventListener('click', selectColor)
+    markBox.addEventListener('click', selectColor)
+    pixelBoard.addEventListener('click', changePixelColor)
 }
+
 
 function load ()
 {
@@ -91,10 +99,6 @@ function load ()
 
 load()
 
-function changePixelColor(event){
-    const pixelToBePaint = event.target;
-    if(pixelToBePaint.className.includes('pixel'))
-    pixelToBePaint.style.backgroundColor = color
-}
-pixelBoard.addEventListener('click', changePixelColor)
+
+
 
