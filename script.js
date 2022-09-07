@@ -14,15 +14,15 @@ function randomizeColor(){
 //gera um grupo de 3 cores
 function generateNewColors(){
      const newColors = []
-     for(let i = 0; i<3; i++){
+     for(let i = 0; i < 3; i++){
         newColors[i] = randomizeColor()
      }
      return newColors
 }
 
 function newPaleteColor(array){
-    const atualColor = ['']
-    for(let i = 0; i<palleteElements.length; i++){
+    const atualColor = []
+    for(let i = 0; i<array.length; i++){
         const arrayOfColor = array[i]
         palleteElements[i].style.backgroundColor =  arrayOfColor
         atualColor.push(arrayOfColor)
@@ -30,6 +30,14 @@ function newPaleteColor(array){
     localStorage.setItem('colorPalette', JSON.stringify(atualColor))
 }
 
+function rememberColor(){
+    const storagePalette = JSON.parse(localStorage.getItem('colorPalette'));
+    if(storagePalette !== null){
+        return newPaleteColor(storagePalette);
+    }
+    return newPaleteColor(generateNewColors())
+}
+rememberColor();
 function aux (){
     return newPaleteColor(generateNewColors())
 }
