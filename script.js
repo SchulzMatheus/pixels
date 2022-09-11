@@ -98,7 +98,13 @@ function load ()
 }
 
 load()
+const pixelTT = document.getElementsByClassName('pixel')
+console.log(pixelTT)
+const clearButton = document.getElementById('clear-board')
 
-
-
+function clearPixel () {
+    for(let i = 0; i<pixelTT.length; i++)
+    pixelTT[i].style.backgroundColor = 'white'
+}
+clearButton.addEventListener('click', clearPixel)
 
