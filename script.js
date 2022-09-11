@@ -6,6 +6,9 @@ const pixelBoard = document.querySelector('#pixel-board')
 let selected = document.querySelector('.selected');
 let color = 'black';
 const markBox = document.getElementById('color-palette');
+const pixelTT = document.getElementsByClassName('pixel')
+console.log(pixelTT)
+const clearButton = document.getElementById('clear-board')
 //document.body.style.backgroundColor
 //gera uma cor random
 function randomizeColor(){
@@ -83,10 +86,16 @@ function changePixelColor(event){
     pixelToBePaint.style.backgroundColor = color
 }
 
+function clearPixel () {
+    for(let i = 0; i<pixelTT.length; i++)
+    pixelTT[i].style.backgroundColor = 'white'
+}
+
 function clickEvents(){
     randomColorBtn.addEventListener('click', aux)
     markBox.addEventListener('click', selectColor)
     pixelBoard.addEventListener('click', changePixelColor)
+    clearButton.addEventListener('click', clearPixel)
 }
 
 
@@ -98,13 +107,7 @@ function load ()
 }
 
 load()
-const pixelTT = document.getElementsByClassName('pixel')
-console.log(pixelTT)
-const clearButton = document.getElementById('clear-board')
 
-function clearPixel () {
-    for(let i = 0; i<pixelTT.length; i++)
-    pixelTT[i].style.backgroundColor = 'white'
-}
-clearButton.addEventListener('click', clearPixel)
+
+
 
