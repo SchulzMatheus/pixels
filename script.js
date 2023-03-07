@@ -1,36 +1,34 @@
-const randomColorBtn = document.getElementById('button-random-color')
-const palleteElements = document.getElementsByClassName('pallete')
-const allPalletElements = document.getElementsByClassName('color')
+const randomColorBtn = document.getElementById('button-random-color');
+const palleteElements = document.getElementsByClassName('pallete');
 document.querySelector('.preto').style.backgroundColor = 'black';
-const pixelBoard = document.querySelector('#pixel-board')
+const pixelBoard = document.querySelector('#pixel-board');
 let selected = document.querySelector('.selected');
 let color = 'black';
 const markBox = document.getElementById('color-palette');
-const pixelTT = document.getElementsByClassName('pixel')
-console.log(pixelTT)
-const clearButton = document.getElementById('clear-board')
-//document.body.style.backgroundColor
-//gera uma cor random
+const pixelTT = document.getElementsByClassName('pixel');
+console.log(pixelTT);
+const clearButton = document.getElementById('clear-board');
+
 function randomizeColor(){
-    const hexadeximal = '0123456789ABCDEF'
-    let randomColor = '#'
-    for(let i = 0; i < 6; i++) {
-        randomColor += hexadeximal[Math.floor(Math.random() * 16)]
+    const hexadeximal = '0123456789ABCDEF';
+    let randomColor = '#';
+    for(let i = 0; i < 6; i += 1) {
+        randomColor += hexadeximal [Math.floor(Math.random() * 16)];
     }
     return randomColor;
 }
-//gera um grupo de 3 cores
+
 function generateNewColors(){
-     const newColors = []
-     for(let i = 0; i < 3; i++){
-        newColors[i] = randomizeColor()
+     const newColors = [];
+     for(let i = 0; i < 3; i += 1) {
+    newColors[i] = randomizeColor();
      }
-     return newColors
+     return newColors;
 }
 
 function newPaleteColor(array){
     const atualColor = []
-    for(let i = 0; i<array.length; i++){
+    for(let i = 0; i<array.length; i += 1){
         const arrayOfColor = array[i]
         palleteElements[i].style.backgroundColor =  arrayOfColor
         atualColor.push(arrayOfColor)
@@ -39,7 +37,7 @@ function newPaleteColor(array){
 }
 
 function generatePixels() {
-    for(let i = 0; i < 25; i++) {
+    for(let i = 0; i < 25; i += 1) {
         const newPixel = document.createElement('div')
         newPixel.className = 'pixel'
         newPixel.style.backgroundColor = 'white'
@@ -61,7 +59,7 @@ function aux (){
 
 function removeClassSelect(classList){
 let newClass = '';
-for(let i = 0; i < classList.length; i++){
+for(let i = 0; i < classList.length; i += 1){
     if(classList[i] !== 'selected') {
         newClass += classList[i] + ' ';
     }
@@ -87,7 +85,7 @@ function changePixelColor(event){
 }
 
 function clearPixel () {
-    for(let i = 0; i<pixelTT.length; i++)
+    for(let i = 0; i<pixelTT.length; i += 1)
     pixelTT[i].style.backgroundColor = 'white'
 }
 
